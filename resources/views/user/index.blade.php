@@ -7,64 +7,113 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kyusi-Ligtas</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         #map {
             height: 100svh;
-            width: 80%;
+            width: 75%;
             padding: 0 5px;
         }
 
         body {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            gap: 20px;
+            padding: 0 15px;
+            background: #333333;
         }
 
-        #form {
-            width: auto;
+        #incidents {
+            width: 22%;
             display: flex;
             flex-direction: column;
-        }
-
-        #form input {
-            width: 100%;
-            margin: 5px 0;
-        }
-
-        #form select {
-            width: 100%;
-            margin: 5px 0;
-        }
-
-        #form label {
-            margin: 15px 0 0 0;
-        }
-
-        #form button {
-            margin: 15px 0;
             padding: 5px;
         }
 
-        textarea {
-            resize: none;
+        #incidents h1 {
+            color: #fff;
         }
+
+        #list {
+            background: grey;
+            height: 100%;
+            padding: 5px;
+            overflow: scroll;
+        }
+
+        #list ul {
+            list-style: none;
+        }
+
+        #list li {
+            border: 1px solid black;
+            height: 70px;
+            margin: 5px 0;
+            padding: 5px 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #actions button {
+            background: rgb(183, 0, 0);
+            padding: 5px;
+            color: #fff;
+            border: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #details {}
     </style>
 </head>
 
 <body class="">
-    <div id = "form">
-        <h1>Incident Reporting</h1>
-        <label for="location">Location</label>
-        <input type="text" id="location" placeholder="Location">
-        <label for="type">Emergency Type</label>
-        <select name="type" id="type">
-            <option value="N/A">Please Select Emergency Type</option>
-            @foreach ($incident_types as $incident_type)
-                <option value="{{ $incident_type }}">{{ $incident_type }}</option>
-            @endforeach
-        </select>
-        <label for="message">Message</label>
-        <textarea name="message" id="" cols="30" rows="10"></textarea>
-        <button type="submit">Report</button>
+    <div id="incidents">
+        <h1>Incidents</h1>
+        <div id="list">
+            <ul>
+                <li>
+                    <div id="details">
+                        Incident 1
+                    </div>
+                    <div id="status">
+                        Not Attended
+                    </div>
+                    <div id="actions">
+                        <button>X</button>
+                    </div>
+                </li>
+                <li>
+                    <div id="details">
+                        Incident 2
+                    </div>
+                    <div id="status">
+                        Attended
+                    </div>
+                    <div id="actions">
+                        <button>X</button>
+                    </div>
+                </li>
+                <li>
+                    <div id="details">
+                        Incident 3
+                    </div>
+                    <div id="status">
+                        Not Attended
+                    </div>
+                    <div id="actions">
+                        <button type="button">X</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     <div id="map">
 
