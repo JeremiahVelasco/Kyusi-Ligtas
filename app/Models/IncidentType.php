@@ -13,6 +13,8 @@ class IncidentType extends Model
         'title'
     ];
 
+    public static $types = ['🚒Fire Emergency', '🚓Police Emergency', '🚑Medical Emergency'];
+
     public function incident()
     {
         return $this->hasMany(Incident::class);
